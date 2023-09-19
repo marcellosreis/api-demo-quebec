@@ -1,0 +1,19 @@
+name: api-demo-quebec
+build:
+  api-demo-quebec:
+    image: okteto.dev/java-gradle-api-demo-quebec:1.0.0
+    dockerfile: Dockerfile.okteto
+    context: .
+deploy:
+  - kubectl apply -f okteto-k8s.yaml
+dev:
+  api-demo-quebec:
+    image: veecode/okteto-runtime:java17
+    command: ./gradlew build --continuous --quiet & 2>1 >/dev/null && ./gradlew bootRun
+    sync:
+      - .:/usr/src/app
+    forward:
+      - 8080:8080
+      - 5005:5005
+    volumes:
+      - /home/gradle/.gradle

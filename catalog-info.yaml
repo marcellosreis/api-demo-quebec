@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: api-demo-quebec
+  description: "api-demo-quebec"
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: "api-demo-quebec"
+    github.com/project-slug: thiagoclessa/api-demo-quebec
+    vault.io/secrets-path: "api-demo-quebec"
+    grafana/tag-selector: "api-demo-quebec"
+    grafana/alert-label-selector: "alertname=api-demo-quebec"
+    argocd/proxy-url: '/argocd/api'
+    argocd/app-name: "api-demo-quebec"
+spec:
+  type: service
+  lifecycle: experimental
+  owner: "group:default/admin"
+
+
+

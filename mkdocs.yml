@@ -1,0 +1,8 @@
+site_name: "api-demo-quebec"
+site_description: "api-demo-quebec"
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core
